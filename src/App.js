@@ -6,36 +6,45 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
+import BurgerMenu from './components/BurgerMenu';
 
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 
 import CreateStudent from './components/create-student.component'
 import EditStudent from './components/edit-student.component'
 import StudentList from './components/student-list.component'
+import Map from './components/Map'
 
-function App() {
+export default function App() {
+  React.useEffect(() => {
+    const menuWrap = document.querySelector(".bm-menu-wrap");
+    if (menuWrap) {
+      menuWrap.setAttribute("aria-hidden", true);
+    }
+  }, []);
   return (
     <div className="App">
+      <BurgerMenu />
       <Router>
         <header className="App-header">
           <Navbar bg="dark" variant="dark">
             <Container>
               <Navbar.Brand>
                 <Link to={'/create-student'} className="nav-link">
-                  React MERN Stack App
+                  Smart Meter Management administration dashboard
                 </Link>
               </Navbar.Brand>
 
               <Nav className="justify-content-end">
                 <Nav>
                   <Link to={'/create-student'} className="nav-link">
-                    Create Student
+                    Add new IoT Station 
                   </Link>
                 </Nav>
 
                 <Nav>
                   <Link to={'/student-list'} className="nav-link">
-                    Student List
+                    Current Stations List
                   </Link>
                 </Nav>
               </Nav>
@@ -68,6 +77,11 @@ function App() {
                     path="/student-list"
                     component={(props) => <StudentList {...props} />}
                   />
+                  <Route
+                    exact
+                    path="/map"
+                    component={(props) => <Map {...props} />}
+                  />
                 </Switch>
               </div>
             </Col>
@@ -75,7 +89,6 @@ function App() {
         </Container>
       </Router>
     </div>
-  )
+  );
 }
 
-export default App

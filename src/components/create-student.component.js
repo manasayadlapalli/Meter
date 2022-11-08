@@ -52,22 +52,22 @@ export default class CreateStudent extends Component {
     return (<div className="form-wrapper">
       <Form onSubmit={this.onSubmit}>
         <Form.Group controlId="Name">
-          <Form.Label>Name</Form.Label>
+          <Form.Label>IoT Station name</Form.Label>
           <Form.Control type="text" value={this.state.name} onChange={this.onChangeStudentName} />
         </Form.Group>
 
         <Form.Group controlId="Email">
-          <Form.Label>Email</Form.Label>
+          <Form.Label>User email</Form.Label>
           <Form.Control type="email" value={this.state.email} onChange={this.onChangeStudentEmail} />
         </Form.Group>
 
         <Form.Group controlId="Name">
-          <Form.Label>Roll No</Form.Label>
+          <Form.Label>Reg No</Form.Label>
           <Form.Control type="text" value={this.state.rollno} onChange={this.onChangeStudentRollno} />
         </Form.Group>
 
         <Button variant="danger" size="lg" block="block" type="submit" className="mt-4">
-          Create Student
+          Add new Station
         </Button>
       </Form>
     </div>);

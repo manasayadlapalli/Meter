@@ -37,9 +37,9 @@ export default class StudentList extends Component {
       <Table striped bordered hover>
         <thead>
           <tr>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Roll No</th>
+            <th>IoT Station name</th>
+            <th>User email</th>
+            <th>Reg No</th>
             <th>Action</th>
           </tr>
         </thead>
